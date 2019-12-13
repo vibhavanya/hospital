@@ -1,5 +1,8 @@
 package com.mindtree.hospitalManagementSystem.service.serviceImpl;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -109,4 +112,24 @@ public class DoctorServiceImpl implements DoctorService {
 		return doctorDtos;
 	}
 
+	@Override
+	public List<DoctorDto> putInFile() {
+		List<Doctor> doctors = doctorRepository.findAll();
+		List<DoctorDto> doctorDtos = new ArrayList<>();
+		File file = new File("");
+		try {
+			FileWriter fileWriter = new FileWriter(file);
+			for (Doctor doctor : doctors) {
+				fileWriter.write("C:\\Users\\M1055883\\Documents\\Cap\\vibha.txt" + doctor);
+				fileWriter.write("\n");
+			}
+			fileWriter.close();
+		} catch (IOException e1) {
+			System.out.println(e1);
+		}
+		for (Doctor doctor : doctors) {
+			doctorDtos.add(convertIntoDto(doctor));
+		}
+		return doctorDtos;
+	}
 }

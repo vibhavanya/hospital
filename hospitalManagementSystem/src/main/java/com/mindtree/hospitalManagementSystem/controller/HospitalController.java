@@ -46,5 +46,9 @@ public class HospitalController {
 		return doctorService.sortOnExperience();
 	}
 	
+	@GetMapping("/insertfile")
+	public List<DoctorDto> getInfile(){
+	List<DoctorDto> doctorDtos=doctorService.putInFile();
+	return doctorDtos;}
 	
 }

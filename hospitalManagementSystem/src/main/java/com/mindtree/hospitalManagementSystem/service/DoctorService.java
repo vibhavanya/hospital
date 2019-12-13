@@ -21,5 +21,7 @@ public interface DoctorService {
 	List<DoctorDto> sortOnSalary();
 	
 	List<DoctorDto> sortOnExperience();
+
+	List<DoctorDto> putInFile();
 	
 }
