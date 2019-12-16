@@ -39,7 +39,7 @@ public class DoctorServiceImpl implements DoctorService {
 		List<Doctor> doctorList = doctorRepository.findAll();
 		List<Patient> patientList = patientRepository.findAll();
 		if (doctorRepository.existsBydoctorName(doctorName)) {
-			if (patientRepository.existspatientName(patientName)) {
+			if (patientRepository.existsBypatientName(patientName)) {
 				Doctor doctor = new Doctor();
 				Patient patient = new Patient();
 				for (Doctor doctor1 : doctorList) {
@@ -59,14 +59,14 @@ public class DoctorServiceImpl implements DoctorService {
 				return patientDto;
 			} else {
 				try {
-					throw new PatientNotFoundException("Pat not found");
+					throw new PatientNotFoundException("Patient not found");
 				} catch (PatientNotFoundException e) {
 					throw new ServiceException(e.getMessage());
 				}
 			}
 		} else {
 			try {
-				throw new DoctorNotFoundException("Doc Not Found");
+				throw new DoctorNotFoundException("Doctor Not Found");
 			} catch (DoctorNotFoundException e) {
 				throw new ServiceException(e.getMessage());
 			}

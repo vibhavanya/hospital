@@ -8,6 +8,7 @@ import com.mindtree.hospitalManagementSystem.entity.Patient;
 @Repository
 public interface PatientRepository extends JpaRepository<Patient, Integer> {
 
-	boolean existspatientName(String patientName);
+
+	boolean existsBypatientName(String patientName);
 
 }
