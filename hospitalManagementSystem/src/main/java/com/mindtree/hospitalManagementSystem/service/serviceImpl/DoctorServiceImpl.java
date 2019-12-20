@@ -116,12 +116,11 @@ public class DoctorServiceImpl implements DoctorService {
 	public List<DoctorDto> putInFile() {
 		List<Doctor> doctors = doctorRepository.findAll();
 		List<DoctorDto> doctorDtos = new ArrayList<>();
-		File file = new File("");
 		try {
-			FileWriter fileWriter = new FileWriter(file);
+			FileWriter fileWriter = new FileWriter("doc.txt");
 			for (Doctor doctor : doctors) {
-				fileWriter.write("C:\\Users\\M1055883\\Documents\\Cap\\vibha.txt" + doctor);
-				fileWriter.write("\n");
+				fileWriter.write(doctor.getDoctorId() + " \n" + doctor.getDoctorName());
+
 			}
 			fileWriter.close();
 		} catch (IOException e1) {
