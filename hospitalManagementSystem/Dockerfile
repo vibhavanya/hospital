@@ -1,9 +1,9 @@
 FROM openjdk:8
-RUN mkdir -p /var/lib/myapp
-COPY target/hospitalManagementSystem-0.0.1-SNAPSHOT.jar    /var/lib/myapp
+RUN mkdir -p /var/lib/tomcat8
+COPY target/hospitalManagementSystem-0.0.1-SNAPSHOT.jar    /var/lib/tomcat8
 
 # Setup Working DIR
-WORKDIR /var/lib/myapp
+WORKDIR /var/lib/tomcat8
 
 #EXPOSE
 EXPOSE 8080
