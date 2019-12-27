@@ -1,10 +1,14 @@
-FROM tomcat:9.0
+FROM openjdk:8
+RUN mkdir -p /var/liv/myapp
+COPY target/hospitalManagementSystem-0.0.1-SNAPSHOT.jar    /var/lib/myapp
 
-RUN echo 'Deploying War on Server'
+# Setup Working DIR
+WORKDIR /var/lib/myapp
 
-RUN rm -rf /usr/local/tomcat/webapps/*
-
-COPY target/hospitalManagementSystem-0.0.1-SNAPSHOT.jar /var/lib/tomcat8/webapps/ROOT.war
-
+#EXPOSE
 EXPOSE 8080
-CMD ["catalina.sh", "run"]
+
+# Start the Bot Service
+CMD ["java", "-jar", "hospitalManagementSystem-0.0.1-SNAPSHOT.jar"]
+
+
